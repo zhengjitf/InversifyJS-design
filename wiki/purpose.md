@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">4 min read</p>
+
 # Why InversifyJS
 
 There are many good reasons to use InversifyJS but we would like to highlight some of them:

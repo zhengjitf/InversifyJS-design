@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">5 min read</p>
+
 # Architecture overview
 
 This page has been created to make contributors' lives easier.

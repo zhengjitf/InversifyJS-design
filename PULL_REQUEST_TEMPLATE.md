@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 <!--- Provide a general summary of your changes in the Title above -->
 
 ## Description

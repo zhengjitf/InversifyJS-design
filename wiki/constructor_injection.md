@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Injecting a class constructor
 
 InversifyJS supports constructor injection to allow passing abstractions or instances of concrete classes

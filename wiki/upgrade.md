@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # How to upgrade from 4.x to 5.x
 - the 4.x `guid(): string` method has been replaced by `id(): number`
 - the property `guid: string` has been replaced by `id: number` in the following [interfaces](https://github.com/inversify/InversifyJS/blob/master/src/interfaces/interfaces.ts) and their implementations

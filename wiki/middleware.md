@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">4 min read</p>
+
 # Middleware
 InversifyJS performs 3 mandatory operations before resolving a dependency:
 

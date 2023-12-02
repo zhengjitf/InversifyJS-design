@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">4 min read</p>
+
 # Controlling the scope of the dependencies
 
 InversifyJS uses transient scope by default but you can also use singleton and request scope:

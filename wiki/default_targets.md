@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # whenTargetIsDefault
 When multiple bindings are available for a given service identifier, we can use 
 one of the following features to resolve the potential `AMBIGUOUS_MATCH` exception:

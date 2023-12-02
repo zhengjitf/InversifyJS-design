@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Activation handler
 
 It is possible to add an activation handler for a type. The activation handler is invoked after a dependency has been resolved and before it is added to a cache (if singleton or request singleton - [see scope](https://github.com/inversify/InversifyJS/blob/master/wiki/scope.md)) and injected. The activation handler will not be invoked if the dependency is taken from a cache.  The activation handler can be synchronous or asynchronous.

@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Contextual bindings & @targetName
 The `@targetName` decorator is used to access the names of the constructor arguments from a
 contextual constraint even when the code is compressed. The `constructor(katana, shuriken) { ...`

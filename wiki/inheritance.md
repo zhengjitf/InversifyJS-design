@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">5 min read</p>
+
 # Inheritance
 
 We try to provide developers with useful error feedback like:

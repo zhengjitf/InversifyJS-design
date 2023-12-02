@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">5 min read</p>
+
 # Recipes
 This page contains some code snippets that showcase concrete advanced use cases AKA "recipes".
 

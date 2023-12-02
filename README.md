@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">9 min read</p>
+
 ![](https://raw.githubusercontent.com/inversify/inversify.github.io/master/img/cover.jpg)
 
 <p align="center">

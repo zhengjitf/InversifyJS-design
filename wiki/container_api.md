@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">11 min read</p>
+
 # The Container API
 
 The InversifyJS container is where dependencies are first configured through bind and, possibly later, reconfigured and removed. The container can be worked on directly in this regard or container modules can be utilized.

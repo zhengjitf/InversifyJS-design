@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Create your own tag decorators
 
 Creating your own decorators is really simple:

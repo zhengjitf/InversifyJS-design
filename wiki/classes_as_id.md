@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">3 min read</p>
+
 # Support for classes
 InversifyJS allows your classes to have a direct dependency on other classes. When doing so you will need to use the `@injectable` decorator but you will not be required to use the `@inject` decorator. 
 

@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Transitive bindings
 
 A transitive type binding allows as to declare a type binding that is resolved by a previously declared type binding.

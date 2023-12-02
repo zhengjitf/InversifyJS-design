@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">4 min read</p>
+
 # Injecting a Provider (asynchronous Factory)
 
 Binds an abstraction to a Provider. A provider is an asynchronous factory, this 

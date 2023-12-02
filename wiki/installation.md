@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Installation
 
 You can get the latest release and the type definitions using npm:
