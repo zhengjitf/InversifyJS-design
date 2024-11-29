@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Environment support and polyfills
 
 InversifyJS requires a modern JavaScript engine with support for the 

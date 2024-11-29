@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Pre Destroy Decorator
 
 It is possible to add a **@preDestroy** decorator for a class method. This decorator will run before a service is unbinded for any cached instance. For this reason, only bindings in singleton scope can contain a method with this decorator.

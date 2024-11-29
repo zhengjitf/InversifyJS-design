@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Container snapshots
 
 Declaring container snapshots is a feature that helps you to write unit tests with ease:

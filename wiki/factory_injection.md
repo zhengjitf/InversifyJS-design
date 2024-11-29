@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Injecting a Factory
 Binds an abstraction to a user defined Factory.
 

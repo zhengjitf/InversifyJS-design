@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">3 min read</p>
+
 # Ecosystem
 InversifyJS is a tiny library, but its contracts and APIs are carefully chosen to spawn an ecosystem of tools and extensions.
 

@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Post Construct Decorator
 
 It is possible to add a **@postConstruct** decorator for a class method. This decorator 

@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Optional dependencies
 
 We can declare an optional dependency using the `@optional()` decorator:

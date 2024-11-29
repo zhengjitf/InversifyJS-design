@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Deactivation handler
 
 It is possible to add a deactivation handler for a type binded in singleton scope.  The handler can be synchronous or asynchronous. The deactivation handler is invoked before the type is unbinded from the container:

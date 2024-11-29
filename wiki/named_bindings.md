@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Named bindings
 We can use named bindings to fix `AMBIGUOUS_MATCH` errors when two or more concretions have
 been bound to the an abstraction. Notice how the constructor arguments of the `Ninja` class

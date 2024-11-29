@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Multi-injection
 
 We can use multi-injection when two or more concretions have been bound to an abstraction.

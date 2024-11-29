@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Inversify with ES5
 ```js
 var inversify = require("inversify");

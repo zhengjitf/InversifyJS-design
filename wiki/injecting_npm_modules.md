@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Injecting npm modules
 
 The following example demonstrates how to inject npm modules (`lodash` & `sequelize`) into a class `SomeClass`.

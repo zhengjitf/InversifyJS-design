@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Support for hierarchical DI systems
 Some applications use a  hierarchical dependency injection (DI) system.
 For example, Angular 2.0 applications use its own 

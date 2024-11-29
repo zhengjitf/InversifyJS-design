@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Injecting a constant or dynamic value
 Binds an abstraction to a constant value:
 ```ts

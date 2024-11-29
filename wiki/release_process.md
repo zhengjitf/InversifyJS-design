@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # How to release a new version?
 
 :warning: This document is for the development team not the users of InversifyJS.

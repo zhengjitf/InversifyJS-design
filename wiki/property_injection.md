@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">3 min read</p>
+
 # Property injection
 InversifyJS supports property injection because sometimes constructor injection is not the best kind of injection pattern. However, you should try to avoid using property injection and prefer constructor injection in most cases.
 

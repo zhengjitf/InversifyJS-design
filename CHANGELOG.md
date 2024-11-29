@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Changelog
 All notable changes to this project from 5.0.0 forward will be documented in this file.
 

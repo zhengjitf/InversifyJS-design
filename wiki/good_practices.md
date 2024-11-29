@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">3 min read</p>
+
 # Good practices
 
 Dependency Inversion (DI) isn't rocket science. 

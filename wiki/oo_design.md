@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">3 min read</p>
+
 # Object-oriented design
 InversifyJS is an IoC container, an IoC container is a tool that helps you 
 to write Object-oriented code that is easy to modify and extend over time. 

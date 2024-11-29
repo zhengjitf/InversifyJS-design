@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Tagged bindings
 
 We can use tagged bindings to fix `AMBIGUOUS_MATCH` errors when two or more

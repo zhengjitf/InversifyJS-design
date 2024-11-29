@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">2 min read</p>
+
 # Declaring container modules
 
 Container modules can help you to manage the complexity of your bindings in very large applications.

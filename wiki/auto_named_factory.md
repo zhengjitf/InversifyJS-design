@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">1 min read</p>
+
 # Auto named factory
 
 Binds an abstraction to an auto-generated Factory that return elements by given name.
