@@ -1,7 +1,7 @@
 # Tagged bindings
 
 We can use tagged bindings to fix `AMBIGUOUS_MATCH` errors when two or more
-concretions have been bound to an abstraction. Notice how the  constructor
+concretions have been bound to an abstraction. Notice how the constructor
 arguments of the `Ninja` class have been annotated using the `@tagged` decorator:
 
 ```ts
@@ -22,7 +22,7 @@ interface Ninja {
 class Ninja implements Ninja {
     public katana: Weapon;
     public shuriken: Weapon;
-    public constructor(
+    constructor(
         @inject("Weapon") @tagged("canThrow", false) katana: Weapon,
         @inject("Weapon") @tagged("canThrow", true) shuriken: Weapon
     ) {

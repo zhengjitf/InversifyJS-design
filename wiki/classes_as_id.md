@@ -1,9 +1,8 @@
 # Support for classes
-InversifyJS allows your classes to have a direct dependency on other classes. When doing so you will need to use the `@injectable` decorator but you will not be required to use the `@inject` decorator. 
+InversifyJS allows your classes to have a direct dependency on other classes.
 
 The `@inject` decorator is not required when you use classes. The annotation is not required because the typescript compiler generates the metadata for us. However, this won't happen if you forget one of the following things:
 
-- Import `reflect-metadata`
 - Set `emitDecoratorMetadata` to `true` in `tsconfig.json`.
 
 ```ts
@@ -29,7 +28,7 @@ class Ninja implements Warrior {
     private _katana: Katana;
     private _shuriken: Shuriken;
 
-    public constructor(katana: Katana, shuriken: Shuriken) {
+    constructor(katana: Katana, shuriken: Shuriken) {
         this._katana = katana;
         this._shuriken = shuriken;
     }
@@ -67,12 +66,9 @@ An exception:
 Will be thrown if we use classes as identifiers in circular dependencies. For example:
 
 ```ts
-import "reflect-metadata";
-import { Container, injectable } from "inversify";
-import getDecorators from "inversify-inject-decorators";
+import { Container, injectable, inject } from "inversify";
 
 let container = new Container();
-let { lazyInject } = getDecorators(container);
 
 @injectable()
 class Dom {
@@ -84,7 +80,7 @@ class Dom {
 
 @injectable()
 class DomUi {
-    @lazyInject(Dom) public dom: Dom;
+    @inject(Dom) public dom: Dom;
 }
 
 @injectable()
@@ -104,12 +100,9 @@ This error may seem a bit misleading because when using classes as service ident
 The solution is to use symbols like `Symbol.for("Dom")` as service identifiers instead of the classes like `Dom`:
 
 ```ts
-import "reflect-metadata";
 import { Container, injectable, inject } from "inversify";
-import getDecorators from "inversify-inject-decorators";
 
-const container = new Container();
-const { lazyInject } = getDecorators(container);
+const container: Container = new Container();
 
 const TYPE = {
     Dom: Symbol.for("Dom"),
@@ -131,8 +124,8 @@ class DomUi {
 @injectable()
 class Dom {
     public name: string;
-    @lazyInject(TYPE.DomUi) public domUi: DomUi;
-    public constructor() {
+    @inject(TYPE.DomUi) public domUi: DomUi;
+    constructor() {
         this.name = "Dom";
     }
 }

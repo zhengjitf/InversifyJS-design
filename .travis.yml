@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-- 10
-- 11
-- 12
-before_install:
-- npm install -g codeclimate-test-reporter
-after_success:
-- codeclimate-test-reporter < coverage/lcov.info

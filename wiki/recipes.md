@@ -125,7 +125,6 @@ We can solve this problem using a factory:
 
 ```ts
 import { inject, injectable, Container, interfaces } from "inversify";
-import "reflect-metadata";
 
 type FactoryOfWeapon = (parent: IWeaponHolder) => IWeapon;
 
@@ -153,7 +152,7 @@ class Weapon implements IWeapon {
     private readonly _name: string;
     public parent: IWeaponHolder;
 
-    public constructor(
+    constructor(
         // We can inject stuff into Weapon
         @inject(TYPE.WeaponName) name: string
     ) {
@@ -174,7 +173,7 @@ class Weapon implements IWeapon {
 class Character implements IWeaponHolder {
     public weapon: IWeapon;
     public name: string;
-    public constructor(
+    constructor(
         @inject(TYPE.FactoryOfWeapon) factoryOfWeapon: FactoryOfWeapon
     ) {
         this.name = "Ninja";
@@ -185,7 +184,7 @@ class Character implements IWeaponHolder {
     }
 }
 
-const container = new Container();
+const container: Container = new Container();
 
 // We inject a string just to demostrate that we can inject stuff into Weapon
 container.bind<string>(TYPE.WeaponName).toConstantValue("Katana");
@@ -213,7 +212,6 @@ But if for some reason we really want to avoid factories, we can use request sco
 
 ```ts
 import { inject, injectable, Container, interfaces } from "inversify";
-import "reflect-metadata";
 
 type FactoryOfWeapon = (parent: IWeaponHolder) => IWeapon;
 
@@ -240,7 +238,7 @@ class Weapon implements IWeapon {
     private readonly _name: string;
     public parent: IWeaponHolder;
 
-    public constructor(
+    constructor(
         // We can inject stuff into Weapon
         @inject(TYPE.WeaponName) name: string
     ) {
@@ -261,7 +259,7 @@ class Weapon implements IWeapon {
 class Character implements IWeaponHolder {
     public weapon: IWeapon;
     public name: string;
-    public constructor(
+    constructor(
         @inject(TYPE.Weapon) weapon: IWeapon
     ) {
         this.name = "Ninja";
@@ -272,7 +270,7 @@ class Character implements IWeaponHolder {
     }
 }
 
-const container = new Container();
+const container: Container = new Container();
 
 // We inject a string just to demostrate that we can inject stuff into Weapon
 container.bind<string>(TYPE.WeaponName).toConstantValue("Katana");

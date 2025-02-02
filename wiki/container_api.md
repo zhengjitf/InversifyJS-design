@@ -127,6 +127,7 @@ An advanced feature that can be used for cross cutting concerns. See [middleware
 ## container.createChild(containerOptions?: interfaces.ContainerOptions): Container;
 
 Create a [container hierarchy ](https://github.com/inversify/InversifyJS/blob/master/wiki/hierarchical_di.md).  If you do not provide options the child receives the options of the parent.
+
 ## container.get\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>): T
 
 Resolves a dependency by its runtime identifier. The runtime identifier must be associated with only one binding and the binding must be synchronously resolved, otherwise an error is thrown:
@@ -205,7 +206,7 @@ let katana = await container.getTaggedAsync<Weapon>("Weapon", "faction", "samura
 let shuriken = await container.getTaggedAsync<Weapon>("Weapon", "faction", "ninja");
 ```
 
-## container.getAll\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>): T[]
+## container.getAll\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, options?: interfaces.GetAllOptions): T[]
 
 Get all available bindings for a given identifier. All the bindings must be synchronously resolved, otherwise an error is thrown:
 
@@ -217,7 +218,21 @@ container.bind<Weapon>("Weapon").to(Shuriken);
 let weapons = container.getAll<Weapon>("Weapon");  // returns Weapon[]
 ```
 
-## container.getAllAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>): Promise\<T[]>
+Keep in mind `container.getAll` doesn't enforce binding contraints by default in the root level, enable the `enforceBindingConstraints` flag to force this binding constraint check:
+
+```ts
+let container = new Container();
+container.bind<Weapon>("Weapon").to(Katana).when(() => true);
+container.bind<Weapon>("Weapon").to(Shuriken).when(() => false);
+
+let allWeapons = container.getAll<Weapon>("Weapon");  // returns [new Katana(), new Shuriken()]
+let notAllWeapons = container.getAll<Weapon>(
+  "Weapon",
+  { enforceBindingConstraints: true },
+);  // returns [new Katana()]
+```
+
+## container.getAllAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, options?: interfaces.GetAllOptions): Promise\<T[]>
 
 Get all available bindings for a given identifier:
 
@@ -227,6 +242,20 @@ container.bind<Weapon>("Weapon").to(Katana);
 container.bind<Weapon>("Weapon").toDynamicValue(async () => new Shuriken());
 
 let weapons = await container.getAllAsync<Weapon>("Weapon");  // returns Promise<Weapon[]>
+```
+
+Keep in mind `container.getAll` doesn't enforce binding contraints by default in the root level, enable the `enforceBindingConstraints` flag to force this binding constraint check:
+
+```ts
+let container = new Container();
+container.bind<Weapon>("Weapon").to(Katana).when(() => true);
+container.bind<Weapon>("Weapon").to(Shuriken).when(() => false);
+
+let allWeapons = await container.getAllAsync<Weapon>("Weapon");  // returns Promise.resolve([new Katana(), new Shuriken()])
+let notAllWeapons = container.getAllAsync<Weapon>(
+  "Weapon",
+  { enforceBindingConstraints: true },
+);  // returns Promise.resolve([new Katana()])
 ```
 
 ## container.getAllNamed\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, named: string | number | symbol): T[]
@@ -503,13 +532,13 @@ class Katana {
 @injectable()
 class Ninja implements Ninja {
     public katana: Katana;
-    public constructor(katana: Katana) {
+    constructor(katana: Katana) {
         this.katana = katana;
     }
     public fight() { return this.katana.hit(); }
 }
 
-const container = new Container();
+const container: Container = new Container();
 container.bind(Katana).toSelf();
 
 const tryGet = () => container.get(Ninja);
@@ -557,6 +586,55 @@ Restore container state to last snapshot.
 ## container.snapshot(): void
 
 Save the state of the container to be later restored with the restore method.
+
+## container.tryGet\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>): T | undefined
+
+Same as `container.get`, but returns `undefined` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>): Promise<T | undefined>
+
+Same as `container.getAsync`, but returns `Promise<undefined>` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetNamed\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, named: string | number | symbol): T | undefined
+
+Same as `container.getNamed`, but returns `undefined` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetNamedAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, named: string | number | symbol): Promise\<T | undefined>
+
+Same as `container.getNamedAsync`, but returns `Promise<undefined>` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetTagged\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, key: string | number | symbol, value: unknown): T | undefined
+
+Same as `container.getTagged`, but returns `undefined` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetTaggedAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, key: string | number | symbol, value: unknown): Promise\<T | undefined>
+
+Same as `container.getTaggedAsync`, but returns `Promise<undefined>` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetAll\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, options?: interfaces.GetAllOptions): T[]
+
+Same as `container.getAll`, but returns `[]` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetAllAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, options?: interfaces.GetAllOptions): Promise\<T[]>
+
+Same as `container.getAllAsync`, but returns `Promise<[]>` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetAllNamed\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, named: string | number | symbol): T[]
+
+Same as `container.getAllNamed`, but returns `[]` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetAllNamedAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, named: string | number | symbol): Promise\<T[]>
+
+Same as `container.getAllNamedAsync`, but returns `Promise<[]>` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetAllTagged\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, key: string | number | symbol, value: unknown): T[]
+
+Same as `container.getAllTagged`, but returns `[]` in the event no bindings are bound to `serviceIdentifier`.
+
+## container.tryGetAllTaggedAsync\<T>(serviceIdentifier: interfaces.ServiceIdentifier\<T>, key: string | number | symbol, value: unknown): Promise\<T[]>
+
+Same as `container.getAllTaggedAsync`, but returns `Promise<[]>` in the event no bindings are bound to `serviceIdentifier`.
+
 ## container.unbind(serviceIdentifier: interfaces.ServiceIdentifier\<unknown>): void
 
 Remove all bindings binded in this container to the service identifier.  This will result in the [deactivation process](https://github.com/inversify/InversifyJS/blob/master/wiki/deactivation_handler.md).
