@@ -10,8 +10,261 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+### Removed
+
+## [7.0.0-alpha.5]
+
+### Changed
+- Renamed `BindingMetadata` to `BindingConstraints`.
+- Improved performance on `Container.get` like methods.
+
+## [7.0.0-alpha.4]
+
+Parity version with `7.0.0-alpha.3`.
+
+## [6.2.2]
+
+- Solved issue with npm registry.
+
+## [7.0.0-alpha.3]
+
+### Changed
+- Updated `BindToFluentSyntax` with `.toResolvedValue`.
+
+## [7.0.0-alpha.2]
+
+### Changed
+- Updated `Container` with a plan cache. `Container.get`, `Container.getAll`, `Container.getAllAsync` and `Container.getAsync` performance has been improved.
+
+## [7.0.0-alpha.1]
+
+### Changed
+- Updated `GetOptions` with `autobind`.
+- Updated `ContainerOptions` with `autobind`.
+
+## [7.0.0-alpha.0]
+
+### Added
+- Added `BindInFluentSyntax`.
+- Added `BindInWhenOnFluentSyntax`.
+- Added `BindOnFluentSyntax`.
+- Added `BindingScope`.
+- Added `BindToFluentSyntax`.
+- Added `BindWhenFluentSyntax`.
+- Added `BindWhenOnFluentSyntax`.
+- Added `ContainerModuleLoadOptions`.
+- Added `DynamicValueBuilder`.
+- Added `Factory`.
+- Added `GetOptions`.
+- Added `GetOptionsTagConstraint`.
+- Added `IsBoundOptions`.
+- Added `MetadataName`.
+- Added `MetadataTag`.
+- Added `MetadataTargetName`.
+- Added `OptionalGetOptions`.
+- Added `Provider`.
+- Added `ResolutionContext`.
+- Added `bindingScopeValues`.
+- Added `bindingTypeValues`.
+- Added `injectFromBase` decorator.
+
+### Changed
+- Updated `injectable` with optional `scope`.
+- [Breaking] Updated `ContainerModule` constructor to receive a callback with `ContainerModuleLoadOptions` instead of `interfaces.ContainerModuleCallBack`.
+- [Breaking] Updated `ContainerModule`.load to return `Promise<void>`.
+- Updated `ContainerOptions` with `parent`.
+- Updated `ContainerOptions` without `autoBindInjectable` and `skipBaseClassChecks`.
+- [Breaking] Updated `Container` to no longer expose `id`, `parent` nor `options`.
+- [Breaking] Updated `Container` with no `applyCustomMetadataReader`, `applyMiddleware`, `createChild`, `merge` and `rebind` methods.
+- [Breaking] Updated `Container` with no `isCurrentBound`, `isBoundNamed`, `isBoundTagged` methods in favor of using `Container.isBound` with `isBoundOptions`.
+- [Breaking] Updated `Container` with no `getNamed`, `getTagged`, `tryGet`, `tryGetNamed` and `tryGetTagged` methods in favor of `Container.get` with `OptionalGetOptions` options.
+- [Breaking] Updated `Container` with no `getNamedAsync`, `getTaggedAsync`, `tryGetAsync`, `tryGetNamedAsync` and `tryGetTaggedAsync` methods in favor of `Container.getAsync` with `OptionalGetOptions` options.
+- [Breaking] Updated `Container` with no `getAllNamed`, `getAllTagged`, `tryGetAll`, `tryGetAllNamed` and `tryGetAllTagged` methods in favor of `Container.getAll` with `GetOptions` options.
+- [Breaking] Updated `Container` with no `getAllNamedAsync`, `getAllTaggedAsync`, `tryGetAllAsync`, `tryGetAllNamedAsync` and `tryGetAllTaggedAsync` methods in favor of `Container.getAllAsync` with `GetOptions` options.
+- [Breaking] Updated `Container` with no `loadAsync` in favor of an async `Container.load`.
+- [Breaking] Updated `Container` with no `unbindAsync` in favor of an async `Container.unbind`.
+- [Breaking] Updated `Container` with no `unbindAllAsync` in favor of an async `Container.unbindAll`.
+- [Breaking] Updated `Container` with no `unloadAsync` in favor of an async `Container.unload`.
+
+
 ### Fixed
-property injection tagged as @optional no longer overrides default values with `undefined`. 
+- Updated `decorate` to no longer require a unexpected prototypes to decorate property nor methods.
+
+### Removed
+- [Breaking] Removed deprecated `LazyServiceIdentifer`. Use `LazyServiceIdentifier` instead.
+- [Breaking] Removed `BindingScopeEnum`. Use `bindingScopeValues` instead.
+- [Breaking] Removed `BindingTypeEnum`.
+- [Breaking] Removed `TargetTypeEnum`.
+- [Breaking] Removed `METADATA_KEY`.
+- [Breaking] Removed `AsyncContainerModule`. Use `ContainerModule` instead.
+- [Breaking] Removed `createTaggedDecorator`.
+- [Breaking] Removed `MetadataReader`.
+- [Breaking] Removed `id`.
+- [Breaking] Removed `interfaces` types. Rely on new types instead.
+- [Breaking] Removed `traverseAncerstors`.
+- [Breaking] Removed `taggedConstraint`.
+- [Breaking] Removed `namedConstraint`.
+- [Breaking] Removed `typeConstraint`.
+- [Breaking] Removed `getServiceIdentifierAsString`.
+- [Breaking] Removed `multiBindToService`.
+
+
+## [6.2.1]
+
+### Fixed
+- Added missing `LazyServiceIdentifer`.
+
+## [6.2.0]
+
+### Added
+- Added `interfaces.GetAllOptions`.
+
+### Changed
+- Updated `container.getAll` with `options` optional param.
+- Updated `container.getAllAsync` with `options` optional param.
+- Updated `interfaces.NextArgs` with optional `isOptional` param.
+- Updated `container` with `tryGet`.
+- Updated `container` with `tryGetAsync`.
+- Updated `container` with `tryGetTagged`.
+- Updated `container` with `tryGetTaggedAsync`.
+- Updated `container` with `tryGetNamed`.
+- Updated `container` with `tryGetNamedAsync`.
+- Updated `container` with `tryGetAll`.
+- Updated `container` with `tryGetAllAsync`.
+- Updated `container` with `tryGetAllTagged`.
+- Updated `container` with `tryGetAllTaggedAsync`.
+- Updated `container` with `tryGetAllNamed`.
+- Updated `container` with `tryGetAllNamedAsync`.
+
+## [6.2.0-beta.1]
+
+### Added
+
+### Changed
+- Updated `interfaces.NextArgs` with optional `isOptional` param.
+- Updated `container` with `tryGet`.
+- Updated `container` with `tryGetAsync`.
+- Updated `container` with `tryGetTagged`.
+- Updated `container` with `tryGetTaggedAsync`.
+- Updated `container` with `tryGetNamed`.
+- Updated `container` with `tryGetNamedAsync`.
+- Updated `container` with `tryGetAll`.
+- Updated `container` with `tryGetAllAsync`.
+- Updated `container` with `tryGetAllTagged`.
+- Updated `container` with `tryGetAllTaggedAsync`.
+- Updated `container` with `tryGetAllNamed`.
+- Updated `container` with `tryGetAllNamedAsync`.
+
+### Fixed
+
+## [6.2.0-beta.0]
+
+### Added
+- Added `interfaces.GetAllOptions`.
+
+### Changed
+- Updated `container.getAll` with `options` optional param.
+- Updated `container.getAllAsync` with `options` optional param.
+
+### Fixed
+
+## [6.1.6]
+
+### Fixed
+- Fixed unexpected property access while running planning checks on injected base types.
+- Updated ESM sourcemaps to refelct the right source code files.
+
+## [6.1.5]
+
+### Changed
+- Updated library to import `reflect-metadata`. Importing `reflect-metadata` before bootstraping a module in the userland is no longer required.
+
+### Fixed
+- Updated ESM build to provide proper types regardless of the ts resolution module strategy in the userland.
+- Fixed container to properly resolve async `.toService` bindings.
+- Fixed `.toService` binding to properly disable caching any values.
+
+## [6.1.5-beta.2]
+
+### Fixed
+- Updated ESM bundled types to solve circularly referenced types.
+
+## [6.1.5-beta.1]
+
+### Fixed
+- Updated ESM build to provide proper types regardless of the ts resolution module strategy in the userland.
+
+## [6.1.5-beta.0]
+
+### Changed
+- Updated library to import `reflect-metadata`. Importing `reflect-metadata` before bootstraping a module in the userland is no longer required.
+
+### Fixed
+- Fixed container to properly resolve async `.toService` bindings.
+- Fixed `.toService` binding to properly disable caching any values.
+
+## [6.1.4]
+
+### Changed
+- Updated planner with better error description when a binding can not be properly resolved.
+
+### Fixed
+- Updated container to allow deactivating singleton undefined values.
+- Updated ESM build to be compatible with both bundler and NodeJS module resolution algorithms.
+
+## [6.1.4-beta.1]
+
+### Fixed
+- Updated ESM build to be compatible with both bundler and NodeJS module resolution algorithms.
+
+## [6.1.4-beta.0]
+
+### Changed
+- Updated planner with better error description when a binding can not be properly resolved.
+
+## [6.1.3]
+
+### Fixed
+- Updated ESM build with missing types.
+
+## [6.1.2]
+
+### Changed
+- Updated `package.json` to include the `exports` field for better bundler support.
+
+### Fixed
+- Updated fetch metadata flows with better error descriptions.
+
+## [6.1.2-beta.1]
+
+### Changed
+- Updated `package.json` to include the `exports` field for better bundler support.
+
+## [6.1.2-beta.0]
+
+### Fixed
+- Updated fetch metadata flows with better error descriptions.
+
+## [6.1.1]
+
+### Fixed
+- Bumped `@inversifyjs/common` and `@inversifyjs/core` fixing wrong dev engines constraints.
+
+## [6.1.0]
+
+### Changed
+- Updated `ServiceIdentifier` to rely on `Function` instead of `Abstract<T>`.
+
+### Fixed
+- Fixed `Target.getNameTag` with the right type: `number | string | symbol`.
+- Fixed `interfaces.ModuleActivationStore.addDeactivation` to enforce `serviceIdentifier` and `onDeactivation` are consistent.
+- Fixed `interfaces.ModuleActivationStore.addActivation` to enforce `serviceIdentifier` and `onDeactivation` are consistent.
+
+## [6.0.3]
+
+### Fixed
+property injection tagged as @optional no longer overrides default values with `undefined`.
+Updated `targetName` to be a valid `typescript@5` decorator.
 
 ## [6.0.2]
 
